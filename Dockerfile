@@ -1,4 +1,4 @@
-# Usa una imagen de PHP con Apache
+# Usa una imagen base de PHP con Apache
 FROM php:8.1-apache
 
 # Habilita las extensiones necesarias para MySQL
@@ -7,7 +7,7 @@ RUN docker-php-ext-install mysqli pdo pdo_mysql
 # Establece el directorio de trabajo dentro del contenedor
 WORKDIR /var/www/html
 
-# Copia el contenido de tu aplicación dentro del contenedor
+# Copia el contenido de tu aplicación dentro del contenedor (incluyendo vendor)
 COPY . .
 
 # Habilita mod_rewrite de Apache
